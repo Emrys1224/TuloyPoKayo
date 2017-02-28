@@ -1,0 +1,253 @@
+
+>>> (A) Why are we doing this? 
+    
+>> What’s the reason this website/app/system needs to exist? What problem does it solve,  for you/your client and for users?
+
+=> This will be a site dedicated for easily finding rental houses/residential space (e.g. dorms, bed space, subdivision house, etc.). 
+   As for the owner of the property/properties, this will be one of the way for advertising the properties that they are renting, increasing their chance of acquiring a tenant. 
+
+=> Tenant
+    * Easily find a rental space that will satisfy their requirements (e.g. location, price, type of space, etc.)
+    * Partially assess the property without having to personally visit the place does saving time and effort
+    * Contact the property owner and schedule meet up at a convenient time
+
+=> Property Owner
+    * Present their properties to more people
+    * Advertise their property/properties online and have a higher chance of acquiring tenants 
+    * Present their properties to prospective tenants in an orderly way while without having to be there personally
+    * Manage and communicate with the prospective tenants at a convenient time
+
+=> Site Owner/Developer
+    * Earn through advertisements in the site
+    * Skills development and additional project for portfolio site
+
+
+
+
+>>> (B) Three Key Questions:
+
+>> (B1) What’s Worth Doing?
+
+>> (B2) What Are We Creating?
+
+=> This will be a site dedicated to helping those who need a rental unit (families, students, workers staying far from home), easily find a place suited for their needs. It will be designed for both mobile device and desktop/laptop units.
+
+
+=> Features for Tenants
+
+-> Filter search as per:
+    * Location
+    * Type of residence (e.g. apartment, dorm, etc.)
+    * Price
+
+-> Search with respect to a location having option of displaying the result as marked places in Google Map. Clicking on it would bring you to the page for the selected rental unit.
+
+-> Review information for the rental on its own page. Information included are: 
+    * Name of the rental unit
+    * Address 
+    * Unit type
+    * Price
+    * Amenities
+    * Terms and conditions
+    * Contact information of the owner
+    * Picture gallery of the rental unit
+    * Availability of the unit
+    * Built in message box for the owner and the prospective tenant (would require account for the tenant)
+
+-> Receive notification for vacancy of selected rental unit (would require account for the tenant), optional notification in their social media account.
+
+
+
+=> Features for Rental Unit Owners
+
+-> Personal home page for managing rental property/properties
+-> Separate page for each rental unit where they can view and edit its information (as indicated above)
+-> Message box for prospective tenants
+-> Share the page of their units in social media
+
+
+=>Additional
+->The site will be monetized using adds. Add display layout is dependent on the device used. This demographic is specific enough to do a targeted marketing.
+
+
+
+>> (B3) What Value Does It Provide?
+
+=>Who’s your target audience? 
+
+    * Workers (factory, office, etc.)
+    * University/College students
+    * Lower income families/individuals that do not have their own house
+
+
+=> What experiences will be valuable or compelling to them? 
+
+    * Easily find rental unit that suite their needs
+    * Eliminate/reduce the need for spending a lot of time visiting their prospective unit
+    * Talk to the owner of the unit more conveniently
+
+
+=> How will your offering be different from competitors (and substitutes)?
+
+-> Most of those sites currently caters to high income individuals and their listings are more broad which includes most properties (residential, commercial, industrial, etc.) both for sale and for rent. Our site will be focused on working class and students that usually requires more affordable residences.
+
+
+
+
+>>> (C) Identifying Business Goals
+
+>> (C1) What does the business need from the website? Who are the stakeholders for your project?
+
+=> The site will be monetized through adds, while helping the owners to advertise their properties at the same time helping those who needs rental residences. 
+
+
+
+>> (C2) What are the business’s goals and desired outcomes, and how will they be measured? 
+
+    * Gain enough users thus generating a good traffic for adds
+    * Gain enough popularity to justify charging the unit owners
+    * Success will be measured by the traffic on the site and the income generated from the adds (at least 25% ROI w/in a year)
+
+
+
+>> (C3) Who is the customer, and why will they use the website? 
+
+=> Generally, it will be the working class and students.
+
+=> As of now there is no specific site for satisfying this need at this demographic. The alternative is usually resource and time consuming.
+
+=> For the owners, this is a convenient alternative to their normal ways of advertising (posters, word of mouth, etc.). This system also let them afford the convenience of reaching more people with less effort.
+
+
+
+>> (C4) What industry standards or regulations should influence what we design or build?
+
+
+
+>> (C5) Who are the competing organizations, products and services — both direct and indirect?
+
+
+
+>> (C6) How will we differentiate this website and its content from what they’re doing?
+
+=> This website has a very specific target demographic (working class and students) which likely cannot be satisfied by what the other sites offer. 
+
+
+
+
+>>> (D)Identifying User Needs
+ 
+>> (D1) What do users expect to be able to do with the website?
+ 
+    * Search for affordable rental units that would satisfy a specific need.
+    * View the available rental units in an area using google maps
+    * Communicate with the owner w/in the site
+    * As for the owners, it is a convenient way to advertise their rental units
+
+
+
+>> (D2) Why do these things matter to them? 
+
+    * It is convenient
+    * It saves time and effort
+
+
+
+>> (D3) What are they using to do those things now?
+
+    * They personally visit the rental units which is very time consuming
+    * The owners rely on posters and words of mouth to advertise their units
+
+
+
+>> (D4) What would provide value to them — make their lives easier or better?
+
+=>This system is specifically designed to address the need for a convenient way of looking for rental properties for this particular demographics. 
+
+
+
+
+>>> (E) Generating Requirements
+        What are the requirements for your website?  
+
+>> (E1) What things have you heard people — prospective users or customers or your client — say they need?
+
+
+
+>> (E2) What things do you think they actually need, based on your research, your user/stakeholder interviews or other evidence?
+
+
+
+>> (E3) Again, based on your research, what things do you think may be useful or valuable to them that they don’t know they need?
+
+
+
+
+>>> (F) Planning for User Testing
+        Create a basic user testing plan.
+
+>> (F1) Who are you’re testing for? What type of user? Age, gender, job role (if applicable)? e.g. Women between 18 – 35.
+    * University/College students
+    * Factory/Office workers
+    * Working class families
+
+
+
+>> (F2)What are the most popular devices they’ll use? 
+e.g. iPhone 5, iPad 2+, desktop (1024 pixels and up).
+    * Desktop
+    * Tablets (Android device)
+    * Smart phones (Android device)
+
+
+
+>> (F3) What OS/browser combinations are most popular among your audience? 
+e.g. Windows 8 Internet Explorer, OS X Safari, iOS X Firefox.
+
+
+
+>> (F4) What connection speeds do they have (3G, 4G, broadband)?
+
+
+
+>> (F5) How tech-savvy is your demographic? e.g. fairly tech-savvy, smartphone owner, social media user.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
