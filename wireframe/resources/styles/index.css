@@ -1,0 +1,30 @@
+﻿hr {
+	margin: 35px auto;
+}
+
+.label-lg {
+	font-size: 20px;
+}
+
+#content {
+	margin: 50px auto;
+	margin-bottom: 0;
+	max-width: 800px;
+}
+
+#reg-owner {
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	button[type=submit] {
+		position: relative;
+		top: -12px;
+		float: right;
+	}
+}
+@media (max-width: 761px) {
+	button[type=submit] {
+		margin-top: 15px;
+	}
+}

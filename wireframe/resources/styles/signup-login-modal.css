@@ -1,0 +1,25 @@
+﻿.modal-header {
+	text-align: right;
+	border-bottom: none;
+	padding: 10px;
+}
+
+.modal-header .language {
+	font-size: 13px;
+	margin: 15px;
+}
+
+.tab-content {
+	padding-top: 15px; 
+}
+
+#login-btn {
+	margin: 0 15px;
+}
+
+#recover-acct {
+	float: right;
+    position: relative;
+    top: 10px;
+    left: -18px;
+}
