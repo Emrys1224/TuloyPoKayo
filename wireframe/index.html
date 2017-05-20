@@ -1,69 +1,149 @@
 ﻿<!DOCTYPE html>
 <html lang="en-us">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tuloy Po Kayo - Home</title>
-<script src="resources/jquery/jquery-3.1.1.js" type="text/javascript"></script>
-<link href="resources/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" type="text/css">
-<script src="resources/bootstrap-3.3.7/js/bootstrap.js" type="text/javascript"></script>
-<link href="resources/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
-<link href="resources/styles/common.css" rel="stylesheet" type="text/css">
-<link href="resources/styles/signup-login-modal.css" rel="stylesheet" type="text/css">
-<link href="resources/styles/index.css" rel="stylesheet" type="text/css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tuloy Po Kayo - Home</title>
+	<script src="resources/jquery/jquery-3.1.1.js" type="text/javascript"></script>
+	<link href="resources/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<script src="resources/bootstrap-3.3.7/js/bootstrap.js" type="text/javascript"></script>
+	<link href="resources/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/common.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/signup-login-modal.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/index.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
 
 <!-- Sign Up/Login Modal -->
 <div class="modal fade" id="signup-login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
+			
+			<!-- modal header -->
 			<div class="modal-header">
 				<a class="language" href="#">Filipino</a>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			</div>
+			
+			<!-- modal body -->
 			<div class="modal-body">
+				<!-- tab label -->
 				<ul id="signup-login-tabs" class="nav nav-tabs">
-					<li role="presentation" class="active"><a href="#register-tab">Register</a></li>
-					<li role="presentation"><a href="#login-tab">Login</a></li>
+					<li role="presentation" class="active"><a href="#login-tab">Login</a></li>
+					<li role="presentation"><a href="#register-tab">Register</a></li>
 				</ul>
+				
+				<!-- tab content -->
 				<div class="tab-content" id="signup-login-form">
-					<div class="tab-pane fade active in" role="tabpanel" id="register-tab" aria-labelledby="register-tab"> 
+					
+					<!-- login form -->
+					<div class="tab-pane fade active in" role="tabpanel" id="login-tab" aria-labelledby="login-tab">
 						<form class="form-horizontal">
 							<div class="form-group">
-   								<label for="username" class="col-sm-2 control-label">Username</label>
-   								<div class="col-sm-10">
-									<input type="text" class="form-control" id="username" placeholder="Username / Email">
+   								<label for="login-username" class="col-sm-3 control-label">Username</label>
+   								<div class="col-sm-8">
+									<input type="text" class="form-control" id="login-username" placeholder="Username / Email">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="password" class="col-sm-2 control-label">Password</label>
-								<div class="col-sm-10">
+								<label for="password" class="col-sm-3 control-label">Password</label>
+								<div class="col-sm-8">
 									<input type="password" class="form-control" id="password" placeholder="Password">
 								</div>
 							</div>
 							<div class="form-group clearfix">
-								<button type="button" class="btn btn-primary" id="login-btn">Login</button>
-								<a href="#" id="recover-acct">Forgot your password?</a>
+								<div class="col-sm-4">
+									<a href="#" id="recover-acct">Forgot your password?</a>
+								</div>
+								<div class="col-sm-7">
+									<button type="button" class="btn btn-primary" id="btn-login">Login</button>
+								</div>
 							</div>
-						</form> 
-					</div>
-					<div class="tab-pane fade" role="tabpanel" id="login-tab" aria-labelledby="login-tab"> 
-						<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p> 
-					</div>
-				</div>
-			</div>
+						</form> <!-- /.form-horizontal -->
+					</div> <!-- /#login-tab -->
+
+					<!-- registration form -->
+					<div class="tab-pane fade" role="tabpanel" id="register-tab" aria-labelledby="register-tab"> 
+						<form class="form-horizontal">
+							<div class="form-group">
+   								<label for="firstname" class="col-sm-4 control-label">First Name</label>
+   								<div class="col-sm-7">
+									<input type="text" class="form-control" id="firstname" placeholder="First Name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="lastname" class="col-sm-4 control-label">Last Name</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="lastname" placeholder="Last Name">
+								</div>
+							</div>
+							<div class="form-group">
+   								<label for="email" class="col-sm-4 control-label">Email</label>
+   								<div class="col-sm-7">
+									<input type="email" class="form-control" id="email" placeholder="Email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email-confirm" class="col-sm-4 control-label">Confirm Email</label>
+								<div class="col-sm-7">
+									<input type="email" class="form-control" id="email-confirm" placeholder="Re-enter Your Email">
+								</div>
+							</div>
+							<div class="form-group">
+   								<label for="password-new" class="col-sm-4 control-label">Password</label>
+   								<div class="col-sm-7">
+									<input type="password" class="form-control" id="password-new" placeholder="Password">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password-confirm" class="col-sm-4 control-label">Confirm Password</label>
+								<div class="col-sm-7">
+									<input type="password" class="form-control" id="password-confirm" placeholder="Re-enter Password">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-4">
+									<label>
+										<input type="radio" name="acct-type" id="acct-renter" value="renter" checked>
+										Renter
+									</label>
+								</div>
+								<div class="col-sm-4">
+									<label id="owner-radio">
+										<input type="radio" name="acct-type" id="acct-owner" value="propertyOwner">
+										Property Owner
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-11">
+									<button type="button" class="btn btn-primary" id="btn-register">Register</button>
+								</div>
+							</div>
+						</form>  <!-- /.form-horizontal -->
+					</div> <!-- /#register-tab -->
+				</div> <!-- /#signup-login-form -->
+			</div> <!-- /.modal-body -->
+
+			<!-- modal footer -->
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default">Facebook</button>
-				<button type="button" class="btn btn-default">Google +</button>
-			</div>
-		</div>
-	</div>
+				<p>Or sign in with:</p>
+				<p>
+					<button type="button" class="btn btn-default" id="signin-btn-fb">Facebook</button>
+					<button type="button" class="btn btn-default" id="signin-btn-gplus">Google +</button>
+				</p>
+			</div> <!-- /.modal-footer -->
+
+		</div> <!-- /.modal-content -->
+	</div> <!-- /.modal-dialog -->
 </div> <!-- /#signup-login-modal -->
 
+<!-- Navigation/Header -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-group" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -73,32 +153,54 @@
       </button>
       <a class="navbar-brand" href="#">Tuloy Po Kayo</a>
     </div><!-- /.navbar-header -->
+    
     <div id="nav-group" class="collapse in navbar-collapse">
 		<div id="nav-links" class="navbar-right">
-		  <ul id="site-nav1" class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
-			<li><a class="language" href="#">Filipino</a></li>
-			<li><a href="#" data-toggle="modal" data-target="#signup-login-modal">Register/Login</a></li>
-		  </ul>
-		  <ul id="social-links1" class="social-links nav navbar-nav">
-			<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
-			<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
-			<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></i><span class="sr-only">Toggle navigation</span></a></li>
-		  </ul>
+
+			<!-- site navigation -->
+		    <ul id="site-nav1" class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a class="language" href="#">Filipino</a></li>
+				<li><a href="#" id="signin-nav-link" data-toggle="modal" data-target="#signup-login-modal">Register/Login</a></li>
+				<li id="acct-nav-link" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="username"></span><span class="caret"></span></a>
+					<!-- profile links dropdown-->
+					<ul class="dropdown-menu">
+						<li><a href="#" id="link-profile">Profile</a></li>
+						<li><a href="#" id="link-message">Messages</a></li>
+						<li><a href="#" id="logout">Logout</a></li>
+					</ul>
+				</li>
+				<li role="separator" class="nav-separator divider"></li>
+		    </ul>
+		    
+		    <!-- social media links -->
+		    <ul id="social-links1" class="social-links nav navbar-nav">
+				<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+				<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+				<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		    </ul>
+
 		</div> <!-- /#nav-links -->
     </div><!-- /.navbar-collapse -->
+
   </div><!-- /.container-fluid -->
 </nav>
 
+<!-- Content -->
 <main class="row">
 	<section class="col-sm-9">
 		<div id="content">
+
+			<h2>Helping you find your new home away from home</h2>
+			
+			<!-- Search field form -->
 			<form>
 				<div class="form-group">
 					<label for="location" class="label-lg">Location</label>
 					<input type="text" class="form-control" id="location" placeholder="Enter a city, town, province....">
 				</div>
-				<label for="location" class="label-lg">Price</label>
+				<label class="label-lg">Price</label>
 				<div class="form-group row">
 					<label for="price-from" class="col-sm-1 col-sm-offset-1 control-label">From</label>
 					<div class="col-sm-4">
@@ -136,11 +238,12 @@
 								<option>Apartment</option>
 								<option>Dormitory</option>
 								<option>House for Rent</option>
+								<option>Room for Rent</option>
 								<option>Bed Space</option>
 							</select>
 						</div>
-						<div class="col-sm-2 col-sm-offset-2">
-							<button type="submit" class="btn btn-primary btn-lg">Search</button>
+						<div class="col-sm-4">
+							<button type="button" class="btn btn-primary btn-lg" id="btn-search">Search</button>
 						</div>
 					</div>
 				</div>
@@ -149,9 +252,10 @@
 			<hr>
 			
 			<div id="reg-owner">
-				<button type="button" class="btn btn-default btn-lg">Advertise Your Property Here!!!</button>
+				<button type="button" class="btn btn-info btn-lg" id="btn-reg-owner" data-toggle="modal" data-target="#signup-login-modal">Advertise Your Property Here!!!</button>
 			</div>
-		</div>
+
+		</div> <!-- #content -->
 	</section>
 	<aside class="col-sm-3">
 		<div class="ad"><h3>AD</h3></div>
@@ -159,22 +263,27 @@
 	</aside>
 </main>
 
+<!-- Footer -->
 <footer class="container-fluid">
 	<h3><a href="#">Tuloy Po Kayo</a></h3>
+
+	<!-- site navigation -->
 	<ul id="site-nav2" class="nav navbar-nav">
 		<li><a href="#">About Us</a></li>
 		<li><a href="#">Contact Us</a></li>
 	</ul>
+
+	<!-- social media links -->
 	<ul id="social-links2" class="social-links nav navbar-nav navbar-right">
 		<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
 		<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
 		<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></i><span class="sr-only">Toggle navigation</span></a></li>
 	</ul>
-
 </footer>
 
 <script src="resources/script/common.js" type="text/javascript"></script>
 <script src="resources/script/signup-login-modal.js" type="text/javascript"></script>
+<script src="resources/script/index.js" type="text/javascript"></script>
 </body>
 </html>
 
