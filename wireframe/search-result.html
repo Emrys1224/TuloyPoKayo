@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tuloy Po Kayo - Search Result</title>
+	<script src="resources/jquery/jquery-3.1.1.js" type="text/javascript"></script>
+	<link href="resources/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<script src="resources/bootstrap-3.3.7/js/bootstrap.js" type="text/javascript"></script>
+	<link href="resources/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/common.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/signup-login-modal.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/search-result.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- Sign Up/Login Modal -->
+<div class="modal fade" id="signup-login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			
+			<!-- modal header -->
+			<div class="modal-header">
+				<a class="language" href="#">Filipino</a>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			
+			<!-- modal body -->
+			<div class="modal-body">
+
+				<!-- tab label -->
+				<ul id="signup-login-tabs" class="nav nav-tabs">
+					<li role="presentation" class="active"><a href="#login-tab">Login</a></li>
+					<li role="presentation"><a href="#register-tab">Register</a></li>
+				</ul>
+				
+				<!-- tab content -->
+				<div class="tab-content" id="signup-login-form">
+					
+					<!-- login form -->
+					<div class="tab-pane fade active in" role="tabpanel" id="login-tab" aria-labelledby="login-tab">
+						<form class="form-horizontal">
+							<div class="form-group">
+   								<label for="login-username" class="col-sm-3 control-label">Username</label>
+   								<div class="col-sm-8">
+									<input type="text" class="form-control" id="login-username" placeholder="Username / Email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-sm-3 control-label">Password</label>
+								<div class="col-sm-8">
+									<input type="password" class="form-control" id="password" placeholder="Password">
+								</div>
+							</div>
+							<div class="form-group clearfix">
+								<div class="col-sm-4">
+									<a href="#" id="recover-acct">Forgot your password?</a>
+								</div>
+								<div class="col-sm-7">
+									<button type="button" class="btn btn-primary" id="btn-login">Login</button>
+								</div>
+							</div>
+						</form> <!-- /.form-horizontal -->
+					</div> <!-- /#login-tab -->
+
+					<!-- registration form -->
+					<div class="tab-pane fade" role="tabpanel" id="register-tab" aria-labelledby="register-tab">
+						<form class="form-horizontal">
+							<div class="form-group">
+   								<label for="firstname" class="col-sm-4 control-label">First Name</label>
+   								<div class="col-sm-7">
+									<input type="text" class="form-control" id="firstname" placeholder="First Name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="lastname" class="col-sm-4 control-label">Last Name</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="lastname" placeholder="Last Name">
+								</div>
+							</div>
+							<div class="form-group">
+   								<label for="email" class="col-sm-4 control-label">Email</label>
+   								<div class="col-sm-7">
+									<input type="email" class="form-control" id="email" placeholder="Email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email-confirm" class="col-sm-4 control-label">Confirm Email</label>
+								<div class="col-sm-7">
+									<input type="email" class="form-control" id="email-confirm" placeholder="Re-enter Your Email">
+								</div>
+							</div>
+							<div class="form-group">
+   								<label for="password-new" class="col-sm-4 control-label">Password</label>
+   								<div class="col-sm-7">
+									<input type="password" class="form-control" id="password-new" placeholder="Password">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password-confirm" class="col-sm-4 control-label">Confirm Password</label>
+								<div class="col-sm-7">
+									<input type="password" class="form-control" id="password-confirm" placeholder="Re-enter Password">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-4">
+									<label>
+										<input type="radio" name="acct-type" id="acct-renter" value="renter" checked>
+										Renter
+									</label>
+								</div>
+								<div class="col-sm-4">
+									<label id="owner-radio">
+										<input type="radio" name="acct-type" id="acct-owner" value="propertyOwner">
+										Property Owner
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-11">
+									<button type="button" class="btn btn-primary" id="btn-register">Register</button>
+								</div>
+							</div>
+							S
+						</form>  <!-- /.form-horizontal -->
+					</div> <!-- /#register-tab -->
+
+				</div> <!-- /#signup-login-form -->
+
+			</div> <!-- /.modal-body -->
+
+			<!-- modal footer -->
+			<div class="modal-footer">
+				<p>Or sign in with:</p>
+				<p>
+					<button type="button" class="btn btn-default" id="signin-btn-fb">Facebook</button>
+					<button type="button" class="btn btn-default" id="signin-btn-gplus">Google +</button>
+				</p>
+			</div> <!-- /.modal-footer -->
+
+		</div> <!-- /.modal-content -->
+	</div> <!-- /.modal-dialog -->
+</div> <!-- /#signup-login-modal -->
+
+<!-- Navigation/Header -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-group" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Tuloy Po Kayo</a>
+    </div><!-- /.navbar-header -->
+    
+    <div id="nav-group" class="collapse in navbar-collapse">
+		<div id="nav-links" class="navbar-right">
+
+			<!-- site navigation -->
+		    <ul id="site-nav1" class="nav navbar-nav">
+				<li><a href="index.html">Home</a></li>
+				<li><a class="language" href="#">Filipino</a></li>
+				<li><a href="#" id="signin-nav-link" data-toggle="modal" data-target="#signup-login-modal">Register/Login</a></li>
+				<li id="acct-nav-link" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="username"></span><span class="caret"></span></a>
+					<!-- profile links dropdown-->
+					<ul class="dropdown-menu">
+						<li><a href="#" id="link-profile">Profile</a></li>
+						<li><a href="#" id="link-message">Messages</a></li>
+						<li><a href="#" id="logout">Logout</a></li>
+					</ul>
+				</li>
+				<li role="separator" class="nav-separator divider"></li>
+		    </ul>
+		    
+		    <!-- social media links -->
+		    <ul id="social-links1" class="social-links nav navbar-nav">
+				<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+				<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+				<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		    </ul>
+
+		</div> <!-- /#nav-links -->
+    </div><!-- /.navbar-collapse -->
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Content -->
+<main class="row">
+	<section class="col-sm-9">
+		<div class="row" id="content">
+
+			<!-- Search Filter -->
+			<div class="col-sm-3 clearfix" id="filter">
+				<h4>Filter</h4>
+				<form>
+					<div class="form-group">
+						<label for="location" class="label-lg">Location</label>
+						<input type="text" class="form-control form-control-sm" id="location" placeholder="Enter a city, town, province....">
+					</div>
+					<label class="label-lg">Price</label>
+
+					<!-- Price: From -->
+					<div class="form-group row">
+						<label for="price-from" class="col-sm-3 control-label indent">From</label>
+						<div class="col-sm-9">
+							<div class="input-group">
+								<div class="input-group-addon addon-sm">&#8369;</div>
+								<select id="price-from" class="form-control form-control-sm">
+									<option>Any</option>
+									<option>500.00</option>
+									<option>1,000.00</option>
+									<option>2,000.00</option>
+									<option>5,000.00</option>
+								</select>
+							</div> <!-- .input-group -->
+						</div> <!-- .col-sm-9 -->
+					</div> <!-- .form-group -->
+
+					<!-- Price: To -->
+					<div class="form-group row">
+						<label for="price-to" class="col-sm-3 control-label indent">To</label>
+						<div class="col-sm-9">
+							<div class="input-group">
+								<div class="input-group-addon addon-sm">&#8369;</div>
+								<select id="price-to" class="form-control form-control-sm">
+									<option>Any</option>
+									<option>500.00</option>
+									<option>1,000.00</option>
+									<option>2,000.00</option>
+									<option>5,000.00</option>
+								</select>
+							</div> <!-- .input-group -->
+						</div> <!-- .col-sm-9 -->
+					</div> <!-- .form-group -->
+					
+					<!-- Property Type -->
+					<div class="form-group">
+						<label for="property-type" class="label-lg">Property Type</label>
+						<select id="property-type" class="form-control form-control-sm">
+							<option>Any</option>
+							<option>Apartment</option>
+							<option>Dormitory</option>
+							<option>House for Rent</option>
+							<option>Room for Rent</option>
+							<option>Bed Space</option>
+						</select>
+					</div> <!-- .form-group -->
+
+					<button type="button" class="btn btn-primary btn-sm" id="btn-filter">Apply Filter</button>
+				</form>
+			</div> <!-- #filter -->
+
+			<!-- Search Result -->
+			<div class="col-sm-9" id="list-result">
+				<!-- show filters in mobile device -->
+				<div class="clearfix" style="height: 1px">
+					<button type="button" class="bnt btn-primary btn-xs" id="btn-show-filter">Change Filters</button>
+				</div>
+
+				<!-- result view tabs -->
+				<ul class="nav nav-tabs" id="result-view-tabs" role="tablist"> 
+					<li role="presentation" class="active"><a href="#list-view" id="list-view-tab" role="tab" data-toggle="tab" aria-controls="list-view" aria-expanded="true">List View</a></li> 
+					<li role="presentation"><a href="#map-view" id="map-view-tab" role="tab" data-toggle="tab" aria-controls="map-view">Map View</a></li>
+				</ul> 
+
+				<div class="tab-content"> 
+					
+					<!-- list-view-tab contents -->
+					<div class="tab-pane fade in active" role="tabpanel" id="list-view" aria-labelledby="list-view-tab">
+						<div class="list-content">
+							<h5><span></span> Matches Found</h5>
+							<div id="results-list"></div>
+						</div>
+					</div> <!-- #list-view -->
+
+					<!-- map-view-tab content -->
+					<div class="tab-pane fade" role="tabpanel" id="map-view" aria-labelledby="map-view-tab">
+						<div class="list-content">
+							<h5><span></span> Matches Found</h5>
+							<div id="results-map">
+								<p>
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+								</p>
+							</div> <!-- #results-map -->
+						</div> <!-- #list-content -->
+					</div> <!-- #map-view -->
+
+				</div>
+			</div> <!-- #list-result -->
+
+		</div> <!-- #content -->
+	</section>
+
+	<aside class="col-sm-3">
+		<div class="ad"><h3>AD</h3></div>
+		<div class="ad"><h3>AD</h3></div>
+	</aside>
+</main>
+
+<!-- Footer -->
+<footer class="container-fluid">
+	<h3><a href="#">Tuloy Po Kayo</a></h3>
+
+	<!-- site navigation -->
+	<ul id="site-nav2" class="nav navbar-nav">
+		<li><a href="#">About Us</a></li>
+		<li><a href="#">Contact Us</a></li>
+	</ul>
+
+	<!-- social media links -->
+	<ul id="social-links2" class="social-links nav navbar-nav navbar-right">
+		<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></i><span class="sr-only">Toggle navigation</span></a></li>
+	</ul>
+</footer>
+
+<script src="resources/script/common.js" type="text/javascript"></script>
+<script src="resources/script/signup-login-modal.js" type="text/javascript"></script>
+<script src="resources/script/search-result-dummy-data.js" type="text/javascript"></script>
+<script src="resources/script/search-result.js" type="text/javascript"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

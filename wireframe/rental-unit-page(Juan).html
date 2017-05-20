@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tuloy Po Kayo - Rental Unit Page (Juan)</title>
+	<script src="resources/jquery/jquery-3.1.1.js" type="text/javascript"></script>
+	<link href="resources/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<script src="resources/bootstrap-3.3.7/js/bootstrap.js" type="text/javascript"></script>
+	<link href="resources/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/common.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/signup-login-modal.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/rental-unit-info.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/messages-common.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/messages-renter.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- Sign Up/Login Modal -->
+<div class="modal fade" id="signup-login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			
+			<!-- modal header -->
+			<div class="modal-header">
+				<a class="language" href="#">Filipino</a>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			
+			<!-- modal body -->
+			<div class="modal-body">
+				<!-- tab label -->
+				<ul id="signup-login-tabs" class="nav nav-tabs">
+					<li role="presentation" class="active"><a href="#login-tab">Login</a></li>
+					<li role="presentation"><a href="#register-tab">Register</a></li>
+				</ul>
+				
+				<!-- tab content -->
+				<div class="tab-content" id="signup-login-form">
+					
+					<!-- login form -->
+					<div class="tab-pane fade active in" role="tabpanel" id="login-tab" aria-labelledby="login-tab">
+						<form class="form-horizontal">
+							<div class="form-group">
+   								<label for="login-username" class="col-sm-3 control-label">Username</label>
+   								<div class="col-sm-8">
+									<input type="text" class="form-control" id="login-username" placeholder="Username / Email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-sm-3 control-label">Password</label>
+								<div class="col-sm-8">
+									<input type="password" class="form-control" id="password" placeholder="Password">
+								</div>
+							</div>
+							<div class="form-group clearfix">
+								<div class="col-sm-4">
+									<a href="#" id="recover-acct">Forgot your password?</a>
+								</div>
+								<div class="col-sm-7">
+									<button type="button" class="btn btn-primary" id="btn-login">Login</button>
+								</div>
+							</div>
+						</form> <!-- /.form-horizontal -->
+					</div> <!-- /#login-tab -->
+
+					<!-- registration form -->
+					<div class="tab-pane fade" role="tabpanel" id="register-tab" aria-labelledby="register-tab"> 
+						<form class="form-horizontal">
+							<div class="form-group">
+   								<label for="firstname" class="col-sm-4 control-label">First Name</label>
+   								<div class="col-sm-7">
+									<input type="text" class="form-control" id="firstname" placeholder="First Name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="lastname" class="col-sm-4 control-label">Last Name</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="lastname" placeholder="Last Name">
+								</div>
+							</div>
+							<div class="form-group">
+   								<label for="email" class="col-sm-4 control-label">Email</label>
+   								<div class="col-sm-7">
+									<input type="email" class="form-control" id="email" placeholder="Email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email-confirm" class="col-sm-4 control-label">Confirm Email</label>
+								<div class="col-sm-7">
+									<input type="email" class="form-control" id="email-confirm" placeholder="Re-enter Your Email">
+								</div>
+							</div>
+							<div class="form-group">
+   								<label for="password-new" class="col-sm-4 control-label">Password</label>
+   								<div class="col-sm-7">
+									<input type="password" class="form-control" id="password-new" placeholder="Password">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password-confirm" class="col-sm-4 control-label">Confirm Password</label>
+								<div class="col-sm-7">
+									<input type="password" class="form-control" id="password-confirm" placeholder="Re-enter Password">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-4">
+									<label>
+										<input type="radio" name="acct-type" id="acct-renter" value="renter" checked>
+										Renter
+									</label>
+								</div>
+								<div class="col-sm-4">
+									<label id="owner-radio">
+										<input type="radio" name="acct-type" id="acct-owner" value="propertyOwner">
+										Property Owner
+									</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-11">
+									<button type="button" class="btn btn-primary" id="btn-register">Register</button>
+								</div>
+							</div>
+						</form>  <!-- /.form-horizontal -->
+					</div> <!-- /#register-tab -->
+				</div> <!-- /#signup-login-form -->
+			</div> <!-- /.modal-body -->
+
+			<!-- modal footer -->
+			<div class="modal-footer">
+				<p>Or sign in with:</p>
+				<p>
+					<button type="button" class="btn btn-default" id="signin-btn-fb">Facebook</button>
+					<button type="button" class="btn btn-default" id="signin-btn-gplus">Google +</button>
+				</p>
+			</div> <!-- /.modal-footer -->
+
+		</div> <!-- /.modal-content -->
+	</div> <!-- /.modal-dialog -->
+</div> <!-- /#signup-login-modal -->
+
+<!-- Navigation/Header -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-group" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Tuloy Po Kayo</a>
+    </div><!-- /.navbar-header -->
+    
+    <div id="nav-group" class="collapse in navbar-collapse">
+		<div id="nav-links" class="navbar-right">
+
+			<!-- site navigation -->
+		    <ul id="site-nav1" class="nav navbar-nav">
+				<li><a href="index.html">Home</a></li>
+				<li><a class="language" href="#">Filipino</a></li>
+				<li><a href="#" id="signin-nav-link" data-toggle="modal" data-target="#signup-login-modal">Register/Login</a></li>
+				<li id="acct-nav-link" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="username"></span><span class="caret"></span></a>
+					<!-- profile links dropdown-->
+					<ul class="dropdown-menu">
+						<li><a href="#" id="link-profile">Profile</a></li>
+						<li><a href="#" id="link-message">Messages</a></li>
+						<li><a href="#" id="logout">Logout</a></li>
+					</ul>
+				</li>
+				<li role="separator" class="nav-separator divider"></li>
+		    </ul>
+		    
+		    <!-- social media links -->
+		    <ul id="social-links1" class="social-links nav navbar-nav">
+				<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+				<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+				<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		    </ul>
+
+		</div> <!-- /#nav-links -->
+    </div><!-- /.navbar-collapse -->
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Content -->
+<main class="row">
+	<section class="col-sm-9">
+		<div id="content">
+
+			<!-- content tabs -->
+			<ul class="nav nav-tabs" id="renter-page-tabs" role="tablist"> 
+				<li role="presentation" class="active"><a href="#info" id="info-tab" role="tab" data-toggle="tab" aria-controls="info" aria-expanded="true">Info</a></li> 
+				<li role="presentation"><a href="#gallery" role="tab" id="gallery-tab" data-toggle="tab" aria-controls="gallery">Gallery</a></li>
+				<li role="presentation"><a href="#map" role="tab" id="map-tab" data-toggle="tab" aria-controls="map">Map</a></li>
+				<li role="presentation"><a href="#messages" role="tab" id="messages-tab" data-toggle="tab" aria-controls="messages">Messages</a></li>
+			</ul> 
+
+			<div class="tab-content"> 
+				
+				<!-- info-tab contents -->
+				<div class="tab-pane fade in active" role="tabpanel" id="info" aria-labelledby="info-tab">
+					<div id="pic-featured">
+						<div class="pic-img"><p class="centered">Pic</p></div>
+					</div>
+					<div id="info-content">
+						<h3 data-name="propertyName"></h3>
+						<p class="info-item" data-name="address"></p>
+						<p class="info-item" data-name="price"></p>
+						<p class="info-item" data-name="propertyType"></p>
+						<p class="info-item">Amenities</p>
+						<ul class="info-details" data-name="amenities"></ul>
+						<p class="info-item">Description</p>
+						<p class="info-details" data-name="description"></p>
+						<p class="info-item">Terms and Conditions</p>
+						<ul class="info-details" data-name="terms"></ul>
+						<p class="info-item">Owner</p>
+						<p class="info-details" data-name="owner"></p>
+						<p class="info-item">Contact No.</p>
+						<p class="info-details" data-name="contact"></p>
+					</div> <!-- #info-content -->
+				</div> <!-- #info -->
+				
+				<!-- gallery-tab contents -->
+				<div class="tab-pane fade" role="tabpanel" id="gallery" aria-labelledby="gallery-tab">
+					<div id="gallery-content">
+
+						<div class="clearfix" id="pic-selected">
+							<div class="pic-img"><p class="centered">Pic</p></div>
+							<p id="caption"></p>
+						</div> <!-- #pic-selected -->
+					
+						<div id="pic-group">
+							<button class="btn-select" id="select-left"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+							<div class="clearfix" id="pic-selection"></div>
+							<button class="btn-select" id="select-right"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+						</div> <!-- #pic-group -->
+					
+					</div> <!-- #gallery-content -->
+				</div> <!-- #gallery -->
+				
+				<!-- map-tab contents -->
+				<div class="tab-pane fade" role="tabpanel" id="map" aria-labelledby="map-tab">
+					<div id="results-map">
+						<p>
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</p>
+					</div>
+				</div> <!-- #map -->
+				
+				<!-- messages tab content -->
+				<div class="tab-pane fade" role="tabpanel" id="messages" aria-labelledby="messages-tab">
+
+					<div id="login-message">
+						<h3>You have to login to use this feature.</h3>
+						<div>
+							<button class="btn btn-primary" data-toggle="modal" data-target="#signup-login-modal">Login/Register</button>
+						</div>
+					</div> <!-- #login-message -->
+
+					<div id="messages-view">
+						<div class="clearfix" id="msgs-header">
+							<h4>JDCruz Apartments</h4>
+							<p>123 Kalyem St., Brgy, Bayan, Probinsya</p>
+						</div> <!-- #msgs-header -->
+						<div id="msgs-body"></div>
+						<div id="msgs-footer">
+							<textarea rows="2" id="reply" placeholder="Write message..."></textarea>
+							<button class="btn btn-primary btn-sm" id="btn-msg-send"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+						</div> <!-- #msgs-footer -->
+					</div> <!-- #messages-view -->
+
+				</div> <!-- #messages -->
+
+			</div> <!-- .tab-content -->
+
+		</div> <!-- #content -->
+	</section>
+	<aside class="col-sm-3">
+		<div class="ad"><h3>AD</h3></div>
+		<div class="ad"><h3>AD</h3></div>
+	</aside>
+</main>
+
+<!-- Footer -->
+<footer class="container-fluid">
+	<h3><a href="#">Tuloy Po Kayo</a></h3>
+
+	<!-- site navigation -->
+	<ul id="site-nav2" class="nav navbar-nav">
+		<li><a href="#">About Us</a></li>
+		<li><a href="#">Contact Us</a></li>
+	</ul>
+
+	<!-- social media links -->
+	<ul id="social-links2" class="social-links nav navbar-nav navbar-right">
+		<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></i><span class="sr-only">Toggle navigation</span></a></li>
+	</ul>
+</footer>
+
+<script src="resources/script/common.js" type="text/javascript"></script>
+<script src="resources/script/signup-login-modal.js" type="text/javascript"></script>
+<script src="resources/script/rental-unit-dummy-data(Juan).js" type="text/javascript"></script>
+<script src="resources/script/rental-unit-info.js" type="text/javascript"></script>
+<script src="resources/script/rental-unit-gallery.js" type="text/javascript"></script>
+<script src="resources/script/rental-unit-message.js" type="text/javascript"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

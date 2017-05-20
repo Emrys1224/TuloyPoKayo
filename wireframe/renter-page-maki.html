@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tuloy Po Kayo - Renter Profile (Makaryo)</title>
+	<script src="resources/jquery/jquery-3.1.1.js" type="text/javascript"></script>
+	<link href="resources/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<script src="resources/bootstrap-3.3.7/js/bootstrap.js" type="text/javascript"></script>
+	<link href="resources/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/common.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/profile.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/del-acct-modal.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/messages-common.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/messages-renter.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- delete account confirmation modal -->
+<div class="modal fade" id="del-acct-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+      <div class="modal-body">
+        <p class="lead">Are you sure you want to delete your account?</p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="btn-del-acct">Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- account deleted confirmation modal -->
+<div class="modal fade" id="acct-delted-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" id="del-confirmation">
+        <p class="lead">Your account has been deleted.</p>
+        <p class="lead">Thank you for using our services.</p>
+      </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Navigation/Header -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-group" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Tuloy Po Kayo</a>
+    </div><!-- /.navbar-header -->
+    
+    <div id="nav-group" class="collapse in navbar-collapse">
+		<div id="nav-links" class="navbar-right">
+
+			<!-- site navigation -->
+		    <ul id="site-nav1" class="nav navbar-nav">
+				<li><a href="index.html">Home</a></li>
+				<li><a class="language" href="#">Filipino</a></li>
+				<li id="acct-nav-link" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="username"></span><span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#" id="link-profile">Profile</a></li>
+						<li><a href="#" id="link-message">Messages</a></li>
+						<li><a href="index.html" id="logout">Logout</a></li>
+					</ul>
+				</li>
+				<li role="separator" class="nav-separator divider"></li>
+		    </ul>
+		    
+		    <!-- social media links -->
+		    <ul id="social-links1" class="social-links nav navbar-nav">
+				<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i><span class="sr-only">Google Plus</span></a></li>
+				<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Twitter</span></a></li>
+				<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Facebook</span></a></li>
+		    </ul>
+
+		</div> <!-- /#nav-links -->
+    </div><!-- /.navbar-collapse -->
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Content -->
+<main class="row">
+	<section class="col-sm-9">
+		<div id="content">
+
+			<!-- content tabs -->
+			<ul class="nav nav-tabs" id="renter-page-tabs" role="tablist"> 
+				<li role="presentation" class="active"><a href="#profile" id="profile-tab" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="true">Profile</a></li> 
+				<li role="presentation"><a href="#messages" role="tab" id="messages-tab" data-toggle="tab" aria-controls="messages">Messages</a></li>
+			</ul> 
+
+			<div class="tab-content"> 
+				
+				<!-- profile-tab contents -->
+				<div class="tab-pane fade in active" role="tabpanel" id="profile" aria-labelledby="profile-tab">
+					
+					<!-- acct settings view mode -->
+					<div id="acct-settings-view">
+						<h4 class="info-group">Account Settings</h4>
+						<div class="row info-group">
+							<label class="col-xs-3" for="acct-name">Name</label>
+							<div class="col-xs-9" id="acct-name">
+								<span id="name-first" data-name="firstName"></span>  
+								<span id="name-last" data-name="lstName"></span>
+							</div>
+						</div>
+						<div class="row info-group">
+							<label class="col-xs-3" for="email">Email</label>
+							<div class="col-xs-9">
+								<span id="email" data-name="email"></span>
+							</div>
+						</div>
+						<div class="row info-group">
+							<label class="col-xs-3" for="linked-acct">Linked Account</label>
+							<div class="col-xs-9">
+								<span id="linked-acct" data-name="linkedAcct"></span>
+							</div>
+						</div>
+						<div class="row info-group">
+							<label class="col-xs-3" for="phone">Phone Number</label>
+							<div class="col-xs-9">
+								<span id="phone" data-name="phone"></span>
+							</div>
+						</div>
+						<div class="row info-group">
+							<label class="col-xs-3" for="status">Status</label>
+							<div class="col-xs-9">
+								<span id="status" data-name="status"></span>
+							</div>
+						</div>
+						<div class="row info-group">
+							<label class="col-xs-3" for="password">Password</label>
+							<div class="col-xs-9">
+								<span id="password" data-name="password"></span>
+							</div>
+						</div>
+						<div id="btn-group" class="clearfix">
+							<button type="button" class="btn btn-warning btn-sm" id="btn-del-acct" data-toggle="modal" data-target="#del-acct-modal">Delete Account</button>
+							<button type="button" class="btn btn-info btn-sm" id="btn-edit-settings">Edit</button>
+						</div>
+					</div> <!-- #acct-settings-view -->
+					
+					<!-- acct setting edit mode -->
+					<div id="acct-settings-edit">
+						<h4 class="info-group">Account Settings</h4>
+						<div class="row input-group">
+							<label class="col-sm-3" for="edit-acct-name">Name</label>
+							<div class="col-sm-4" id="edit-acct-name">
+								<input type="text" class="form-control" id="edit-1st-name" name="firstName">
+							</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="edit-lst-name" name="lstName">
+							</div>
+						</div>
+						<div class="row input-group">
+							<label class="col-sm-3" for="edit-email">Email</label>
+							<div class="col-sm-6">
+								<input type="email" class="form-control" id="edit-email" name="email">
+							</div>
+						</div>
+						<div class="row input-group">
+							<label class="col-sm-3" for="edit-linked-acct">Linked Account</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="edit-linked-acct" name="linkedAcct">
+							</div>
+						</div>
+						<div class="row input-group">
+							<label class="col-sm-3" for="edit-phone">Phone Number</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="edit-phone" name="phone">
+							</div>
+						</div>
+						<div class="row input-group">
+							<label class="col-sm-3" for="edit-status">Status</label>
+							<div class="col-sm-6">
+								<select id="price-from" class="form-control" name="status">
+									<option>Anonymous</option>
+									<option>Student</option>
+									<option>Worker</option>
+								</select>
+							</div>
+						</div>
+						<div class="row input-group">
+							<label class="col-sm-3" for="edit-password">Password</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="edit-password" name="password">
+							</div>
+						</div>
+						<div class="row input-group">
+							<label class="col-sm-3" for="confirm-password">Confirm Password</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="confirm-password" name="password">
+							</div>
+						</div>
+						<div id="btn-group">
+							<button type="button" class="btn btn-primary btn-sm" id="btn-save">Save</button>
+						</div>
+					</div> <!-- #acct-settings-edit -->
+
+				</div> <!-- #profile -->
+				
+				<!-- messages tab content -->
+				<div class="tab-pane fade" role="tabpanel" id="messages" aria-labelledby="messages-tab">
+					<div id="messages-list"></div>
+
+					<div id="messages-view">
+						<div class="clearfix" id="msgs-header">
+							<i class="fa fa-window-close-o" id="close-btn"></i>
+							<h4></h4>
+							<p></p>
+						</div>
+						<div id="msgs-body"></div>
+						<div id="msgs-footer">
+							<textarea rows="2" placeholder="Write message..."></textarea>
+							<button class="btn btn-primary btn-sm" id="btn-msg-send"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+						</div>
+					</div> <!-- #messages-view -->
+
+				</div> <!-- #messages -->
+
+			</div> <!-- .tab-content -->
+
+		</div> <!-- #content -->
+	</section>
+	
+	<aside class="col-sm-3">
+		<div class="ad"><h3>AD</h3></div>
+		<div class="ad"><h3>AD</h3></div>
+	</aside>
+</main>
+
+<!-- Footer -->
+<footer class="container-fluid">
+	<h3><a href="#">Tuloy Po Kayo</a></h3>
+
+	<!-- site navigation -->
+	<ul id="site-nav2" class="nav navbar-nav">
+		<li><a href="#">About Us</a></li>
+		<li><a href="#">Contact Us</a></li>
+	</ul>
+
+	<!-- social media links -->
+	<ul id="social-links2" class="social-links nav navbar-nav navbar-right">
+		<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></i><span class="sr-only">Toggle navigation</span></a></li>
+	</ul>
+</footer>
+
+<script src="resources/script/common.js" type="text/javascript"></script>
+<script src="resources/script/renter-maki-dummy-data.js" type="text/javascript"></script>
+<script src="resources/script/profile.js" type="text/javascript"></script>
+<script src="resources/script/del-acct-modal.js" type="text/javascript"></script>
+<script src="resources/script/messages-renter.js" type="text/javascript"></script>
+<script src="resources/script/messages-common.js" type="text/javascript"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

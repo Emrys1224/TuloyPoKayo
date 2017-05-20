@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tuloy Po Kayo - Rental Unit Management Page (Teresita New)</title>
+	<script src="resources/jquery/jquery-3.1.1.js" type="text/javascript"></script>
+	<link href="resources/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<script src="resources/bootstrap-3.3.7/js/bootstrap.js" type="text/javascript"></script>
+	<link href="resources/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/common.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/del-acct-modal.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/rental-unit-info.css" rel="stylesheet" type="text/css">
+	<link href="resources/styles/rental-unit-mngt-page.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<!-- delete photo confirmation modal -->
+<div class="modal fade" id="del-pic-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+      <div class="modal-body">
+        <p class="lead">Click "Delete" to delete this photo</p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="btn-del-pic-confirm">Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- account photo confirmation modal -->
+<div class="modal fade" id="pic-delted-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" id="del-confirmation">
+        <p class="lead">Your photo has been deleted.</p>
+      </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Navigation/Header -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-group" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Tuloy Po Kayo</a>
+    </div><!-- /.navbar-header -->
+    
+    <div id="nav-group" class="collapse in navbar-collapse">
+		<div id="nav-links" class="navbar-right">
+
+			<!-- site navigation -->
+		    <ul id="site-nav1" class="nav navbar-nav">
+				<li><a href="index.html">Home</a></li>
+				<li><a class="language" href="#">Filipino</a></li>
+				<li id="acct-nav-link" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="username">Teresita</span><span class="caret"></span></a>
+					<!-- profile links dropdown-->
+					<ul class="dropdown-menu">
+						<li><a href="owner-page-teresita.html" id="link-profile">Profile</a></li>
+						<li><a href="#" id="link-properties">Properties</a></li>
+						<li><a href="#" id="link-message">Messages</a></li>
+						<li><a href="index.html" id="logout">Logout</a></li>
+					</ul>
+				</li>
+				<li role="separator" class="nav-separator divider"></li>
+		    </ul>
+		    
+		    <!-- social media links -->
+		    <ul id="social-links1" class="social-links nav navbar-nav">
+				<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i><span class="sr-only">Google Plus</span></a></li>
+				<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Twitter</span></a></li>
+				<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Facebook</span></a></li>
+		    </ul>
+		</div> <!-- /#nav-links -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Content -->
+<main class="row">
+	<section class="col-sm-9">
+		<div id="content">
+		
+			<!-- content tabs -->
+			<ul class="nav nav-tabs" id="renter-page-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#info" id="info-tab" role="tab" data-toggle="tab" aria-controls="info" aria-expanded="true">Info</a></li> 
+				<li role="presentation"><a href="#gallery" role="tab" id="gallery-tab" data-toggle="tab" aria-controls="gallery">Gallery</a></li>
+				<li role="presentation"><a href="#map" role="tab" id="map-tab" data-toggle="tab" aria-controls="map">Map</a></li>
+				<li role="presentation"><a href="#messages" role="tab" id="messages-tab" data-toggle="tab" aria-controls="messages">Messages</a></li>
+			</ul> 
+
+			<div class="tab-content"> 
+
+				<!-- info-tab contents -->
+				<div class="tab-pane fade in active" role="tabpanel" id="info" aria-labelledby="info-tab">
+
+					<div id="pic-featured">
+						<div class="pic-img">
+							<p class="centered">Pic</p>
+						<input type="file" name="featuredPhoto" id="pic-sel">
+						<label for="pic-sel" class="btn btn-info btn-xs" id="btn-pic-sel">Choose a Photo</label>
+						</div>
+					</div> <!-- #pic-featured -->
+
+					<div id="info-content">
+						<div class="info-group clearfix">
+							<h3 class="info-display" data-name="propertyName"></h3>
+							<input type="text" class="info-edit" name="propertyName" >
+							<button class="btn btn-info btn-xs info-display btn-edit">Edit</button>
+							<button class="btn btn-xs info-edit btn-cancel">Cancel</button>
+							<button class="btn btn-primary btn-xs info-edit btn-save">Save</button>
+						</div> <!-- .info-group propertyName -->
+						<div class="info-group clearfix">
+							<p class="info-item info-display" data-name="address"></p>
+							<input type="text" class="info-edit" name="address">
+							<button class="btn btn-info btn-xs info-display btn-edit">Edit</button>
+							<button class="btn btn-xs info-edit btn-cancel">Cancel</button>
+							<button class="btn btn-primary btn-xs info-edit btn-save">Save</button>
+						</div> <!-- .info-group address -->
+						<div class="info-group clearfix">
+							<p class="info-item info-display" data-name="price"></p>
+							<input type="number" class="info-edit" name="price" >
+							<button class="btn btn-info btn-xs info-display btn-edit">Edit</button>
+							<button class="btn btn-xs info-edit btn-cancel">Cancel</button>
+							<button class="btn btn-primary btn-xs info-edit btn-save">Save</button>
+						</div> <!-- .info-group price -->
+						<div class="info-group clearfix">
+							<p class="info-item info-display" data-name="propertyType"></p>
+							<select class="info-edit">
+								<option>Apartment</option>
+								<option>Dormitory</option>
+								<option>House for Rent</option>
+								<option>Room for Rent</option>
+								<option>Bed Space</option>
+							</select>
+							<button class="btn btn-info btn-xs info-display btn-edit">Edit</button>
+							<button class="btn btn-xs info-edit btn-cancel">Cancel</button>
+							<button class="btn btn-primary btn-xs info-edit btn-save">Save</button>
+						</div> <!-- .info-group propertyType -->
+						<div class="info-group clearfix">
+							<p class="info-item">Amenities</p>
+							<input type="text" class="list-input" name="amenities" placeholder="Add an item">
+							<button class="btn btn-info btn-xs btn-add">Add</button>
+							<ul class="info-details info-display" data-name="amenities"></ul>
+						</div> <!-- .info-group amenities -->
+						<div class="info-group clearfix">
+							<p class="info-item">Description</p>
+							<p class="info-details info-display" data-name="description"></p>
+							<textarea class="info-edit" rows="5"></textarea>
+							<button class="btn btn-info btn-xs info-display btn-edit">Edit</button>
+							<button class="btn btn-xs info-edit btn-cancel">Cancel</button>
+							<button class="btn btn-primary btn-xs info-edit btn-save">Save</button>
+						</div> <!-- .info-group description -->
+						<div class="info-group clearfix">
+							<p class="info-item">Terms and Conditions</p>
+							<input type="text" class="list-input" name="terms" placeholder="Add an item">
+							<button class="btn btn-info btn-xs btn-add">Add</button>
+							<ul class="info-details info-display" data-name="terms"></ul>
+						</div> <!-- .info-group terms -->
+						<div class="info-group clearfix">
+							<p class="info-item">Owner</p>
+							<p class="info-details info-display" data-name="owner"></p>
+							<input type="text" class="info-details info-edit" name="owner" >
+							<button class="btn btn-info btn-xs info-display btn-edit">Edit</button>
+							<button class="btn btn-xs info-edit btn-cancel">Cancel</button>
+							<button class="btn btn-primary btn-xs info-edit btn-save">Save</button>
+						</div> <!-- .info-group owner -->
+						<div class="info-group clearfix">
+							<p class="info-item">Contact No.</p>
+							<p class="info-details info-display" data-name="contact"></p>
+							<input type="text" class="info-details info-edit" name="contact" >
+							<button class="btn btn-info btn-xs info-display btn-edit">Edit</button>
+							<button class="btn btn-xs info-edit btn-cancel">Cancel</button>
+							<button class="btn btn-primary btn-xs info-edit btn-save">Save</button>
+						</div> <!-- .info-group contact -->
+						<a href="rental-unit-page(Teresita).html" class="btn btn-primary" id="btn-change-view">View as another user</a>
+					</div> <!-- #info-content -->
+				</div> <!-- #info -->
+				
+				<!-- gallery-tab contents -->
+				<div class="tab-pane fade" role="tabpanel" id="gallery" aria-labelledby="gallery-tab">
+					<div id="gallery-content">
+
+						<div class="clearfix" id="pic-selected">
+							<div class="pic-img">
+								<p class="centered">Pic</p>
+								<button class="btn btn-warning btn-xs" id="btn-del-pic"  data-toggle="modal" data-target="#del-pic-modal">Delete</button>
+							</div> <!-- .pic-img -->
+							<div id="caption-area">
+								<p class="info-display" id="caption"></p>
+								<textarea class="info-edit" rows="8" placeholder="Add a description about this photo...."></textarea>
+								<div id="container-btn">
+									<button class="btn btn-info btn-xs info-display btn-edit">Edit</button>
+									<button class="btn btn-xs info-edit btn-cancel">Cancel</button>
+									<button class="btn btn-primary btn-xs info-edit btn-save">Save</button>
+								</div> <!-- #container-btn -->
+							</div> <!-- #caption-area -->
+						</div> <!-- #pic-selected -->
+
+						<div id="pic-group">
+							<button class="btn-select" id="select-left"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+							<div class="clearfix" id="pic-selection"></div>
+							<button class="btn-select" id="select-right"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+						</div> <!-- #pic-group -->
+
+						<div>
+							<!-- <input type="file" name="featuredPhoto" id="pic-add">
+							<label for="pic-add" class="btn btn-primary"  id="btn-pic-add">Add Photo</label> -->
+							<button class="btn btn-primary"  id="btn-pic-add">Add Photo</button>
+						</div>
+					</div> <!-- #gallery-content -->
+				</div> <!-- #gallery -->
+				
+				<!-- map-tab contents -->
+				<div class="tab-pane fade" role="tabpanel" id="map" aria-labelledby="map-tab">
+					<div id="area-map">
+						<p>
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</p>
+					</div> <!-- #area-map -->
+				</div> <!-- #map -->
+				
+				<!-- messages tab content -->
+				<div class="tab-pane fade" role="tabpanel" id="messages" aria-labelledby="messages-tab">
+					<h3>There is currently no message to be displayed for this property.</h3>
+				</div> <!-- #messages -->
+
+			</div> <!-- .tab-content -->
+		</div> <!-- #content -->
+	</section>
+	<aside class="col-sm-3">
+		<div class="ad"><h3>AD</h3></div>
+		<div class="ad"><h3>AD</h3></div>
+	</aside>
+</main>
+
+<!-- Footer -->
+<footer class="container-fluid">
+	<h3><a href="#">Tuloy Po Kayo</a></h3>
+
+	<!-- site navigation -->
+	<ul id="site-nav2" class="nav navbar-nav">
+		<li><a href="#">About Us</a></li>
+		<li><a href="#">Contact Us</a></li>
+	</ul>
+
+	<!-- social media links -->
+	<ul id="social-links2" class="social-links nav navbar-nav navbar-right">
+		<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i><span class="sr-only">Toggle navigation</span></a></li>
+		<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></i><span class="sr-only">Toggle navigation</span></a></li>
+	</ul>
+</footer>
+
+<!-- scripts -->
+<script src="resources/script/common.js" type="text/javascript"></script>
+<script src="resources/script/rental-unit-dummy-data(TeresitaNew).js" type="text/javascript"></script>
+<script src="resources/script/rental-unit-mngt-page.js" type="text/javascript"></script>
+<script src="resources/script/rental-unit-gallery.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
