@@ -1,0 +1,173 @@
+﻿h3.info-display, #info-content h3 {
+	color: #555;
+}
+
+/* info tab */
+.info-item {
+    color: #555;
+	font-weight: bold;
+	margin: 10px 0 0;
+}
+
+.info-details {
+	padding-left: 40px;
+	margin: 0 0 20px;
+}
+
+.centered {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+.pic-img {
+	width: 36vw;
+	height: 24vw;
+	background: #FBFBFB;
+	border: 1px solid #DDD;
+	margin: 5px auto 20px auto;
+	position: relative;
+}
+
+.pic-img p {
+    color: #AAA;
+    font-size: 45px;
+    font-weight: bold; 
+}
+
+#content {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+#pic-featured {
+	border-bottom: 1px solid #DDD;
+	margin-bottom: 20px;
+}
+
+/* gallery */
+.btn-select {
+    background: #E7E7E7;
+    color: #bbb;
+    font-size: 33px;
+    font-weight: bold;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    margin: 30px 0;
+}
+
+.pic-container {
+	display: inline-block;
+	margin: 0;
+	position: relative;
+}
+
+.selected {
+	background-color: #DDD;
+}
+
+.pic-thumbnail {
+    width: 26vh;
+    height: 16vh;
+    background: #FBFBFB;
+    border: 1px solid #CCC;
+    margin: 10px;
+	cursor: pointer;
+}
+
+.pic-thumbnail p {
+	color: #999;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+ 
+#gallery-content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+#pic-selected {
+	display: flex;
+	flex-direction: row;
+	padding: 5px 0 17px 0;
+	border-bottom: 1px solid #DDD;
+}
+
+#pic-selected .pic-img {
+	margin: 0 15px 0;
+	flex: 0 0 36vw;
+}
+
+#pic-group {
+	display: flex;
+	flex: 1;
+	padding-top: 20px;
+}
+
+#pic-selection {
+	flex: 1;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin: 0 5px;
+}
+
+
+/* map tab */
+#results-map, #area-map {
+	height: 57vh;
+    background: #FBFBFB;
+	border: 1px solid #DDD;
+}
+
+#results-map p, #area-map p {
+    font-size: 70px;
+    text-align: center;
+    position: relative;
+    top: 20vh;
+}
+
+/* messages */
+#login-message {
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+#login-message h3 {
+	margin: 35px 0;
+}
+
+
+
+
+@media (max-width: 767px) {
+	/* info tab */
+	#pic-featured {
+		width: 80vw;
+		height: 40vw;
+	}
+	/* map tab */
+	#results-map, #area-map {
+		height: 65vh;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

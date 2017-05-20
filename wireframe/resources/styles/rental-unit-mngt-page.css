@@ -1,0 +1,143 @@
+/*info*/
+
+select, .info-group input[type="number"] {
+	width: 135px;
+    background: white;
+}
+
+textarea.info-edit {
+	display: block;
+	width: 100%;
+	resize: none;
+	margin:5px 0 7px;
+}
+
+input[type="file"] {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+ul h5 {
+	color: #777;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.info-group {
+	border-bottom: 1px solid #DDD;
+	padding-top: 10px;
+	padding-bottom: 7px; 
+}
+
+.info-group .info-item, .info-group h3 {
+	margin: 0;
+    padding-top: 3px;
+}
+
+.info-group input {
+	width: 300px;
+}
+
+.info-group input, textarea.info-edit, select {
+	padding: 2px 8px;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+}
+
+.info-group ul {
+	width: 100%;
+}
+
+.info-group li {
+	padding: 4px 0;
+}
+
+.info-group li span {
+	display: block;
+}
+
+.info-display {
+	float: left;
+}
+
+.info-details {
+	margin: 0;
+}
+
+.list-input {
+	margin: 5px 0 0 31px;
+}
+
+.btn-edit, .btn-save, .btn-cancel, .btn-add {
+    position: relative;
+    top: 3px;
+	margin-bottom: 10px;
+}
+
+.btn-edit, .btn-save, .btn-cancel, .btn-remove, .btn-add, #btn-del-pic {
+	width: 57px;
+	padding: 0 5px;
+	float: right;
+}
+
+.btn-cancel {
+	background: #DDD;
+	color: #888;
+	border: 1px solid #CCC;
+	margin-left: 15px;
+}
+
+.btn-remove {
+	position: relative;
+	top: -20px;
+}
+
+.btn-add {
+	margin-top: 6px;
+}
+
+#btn-change-view {
+    display: table;
+    margin: 20px auto;
+}
+
+
+/*galery*/
+
+#caption {
+	margin: 10px 0;
+}
+
+#btn-pic-sel, #btn-del-pic {
+	margin: 5px;	
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#caption-area {
+	flex: 1;
+    position: relative;
+    margin-top: -5px;
+}
+
+#container-btn {
+	clear: both;
+	position: absolute;
+	bottom: -3px;
+	right: 0;
+}
+
+#btn-pic-add {
+    margin: 10px 43px 15px;
+    float: right;
+}
+
+
+
+
+

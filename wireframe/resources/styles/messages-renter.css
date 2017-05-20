@@ -1,0 +1,11 @@
+﻿.renter {
+	background-color: #FEFEFE;
+	float: right;
+	border-bottom-right-radius: 0;
+	margin-right: 3px;
+}
+
+.owner {
+	background-color: #D5F4FF;
+	border-top-left-radius: 0;
+}
