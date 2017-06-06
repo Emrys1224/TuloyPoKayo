@@ -13,6 +13,7 @@ footer {
 }
 
 h3 {
+	margin-top: 14px;
 	margin-bottom: 0;
 }
 
@@ -161,7 +162,7 @@ aside.col-sm-3 {
 	}
 	#social-links2 {
 		position: relative;
-		top: -40px;
+		top: -32px;
 		left: -5px;
 	}
 }
