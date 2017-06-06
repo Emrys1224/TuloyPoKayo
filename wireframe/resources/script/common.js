@@ -6,6 +6,7 @@ $('.collapse').collapse()
  * @param newView is the view to be shown
  * @param callback is a callback function
  */
+
 function toggleView(curView, newView, callback) {
 	curView.fadeOut(200, function() {
 		newView.fadeIn(200)
@@ -18,7 +19,15 @@ function toggleView(curView, newView, callback) {
 
 }
 
+function setMainBgPos() {
+	var mainHeight = $('main').height();
 
+	if(mainHeight < 600) {
+		$('main.row').css('background-position-y', '-320px')
+	}
+}
+
+setMainBgPos();
 
 
 

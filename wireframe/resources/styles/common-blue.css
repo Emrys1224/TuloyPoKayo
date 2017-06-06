@@ -98,17 +98,18 @@ select {
 }
 
 main.row {
+	background-image: url(../images/houses.jpg);
+	background-size: cover;
 	margin: 0;
-	background: #F8F8F8; 
 }
 
 section.col-sm-9 {
-	background: #F8F8F8;
+	background: rgba(248, 248, 248, 0.85);
 	padding: 20px 20px;
 }
 
 aside.col-sm-3 {
-	background: #F1F1F1;
+	background: rgba(220, 220, 220, 0.85);
 	padding: 20px;
 }
 
@@ -181,7 +182,6 @@ aside.col-sm-3 {
 		padding: 8px 12px;
 	}
 }
-
 
 /* Scroll bar style */ 
 ::-webkit-scrollbar {
