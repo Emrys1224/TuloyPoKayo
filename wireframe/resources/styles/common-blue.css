@@ -4,7 +4,9 @@
 }
 
 footer, nav {
-	background: #33C !important;
+	/*background: #33C !important;*/
+	background-image: url(../images/wood-texture.jpg);
+    background-position-y: -1160px;
 	margin: 0 !important;
 }
 
